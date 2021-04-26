@@ -18,6 +18,16 @@ int SafeInput(bool strict) {
 	cin.get();
 	return result;
 }
+int SafeInput1(bool strict) {
+	int result;
+	while (!(cin >> result) || (cin.peek() != '\n') || (strict && result < 0)) {
+		cin.clear();
+		while (cin.get() != '\n');
+		cout << "Введите корректное число!" << endl;
+	}
+	cin.get();
+	return result;
+}
 int random(int a, int b)
 {
 	if (a > 0) return a + rand() % (b - a);
@@ -136,43 +146,46 @@ int main()
 	//}
 	//cout << "\n============================================================\n";
 
-	cout << "Четвёртое задание:\n";
-	cout << "Введите размер стека: ";
-	int DQ = SafeInput(1);
-	stack<int>str;
-	stack<int>str2;
-	for (int i = 0; i < DQ; i++)
-	{
-		str.push(random(0, 100));
-	}
-	out(str);
-	cout << "Введите ключ для удаления элемента: ";
-	int key = SafeInput(1);
-	int t = 0, t1 = str.size();
-	while (str.top() != key && t != t1)
-	{
-		str2.push(str.top());
-		str.pop();
-		t++;
-		if (t == t1)
-		{
-			break;
-		}
-	}
-	if (t != t1)
-	{
-		str.pop();
-		for (int i = 0; i < t; i++)
-		{
-			str.push(str2.top());
-			str2.pop();
-		}
-		out(str);
-	}
-	else
-	{
-		cout << "Ошибка!\n";
-	}
+	//cout << "Четвёртое задание:\n";
+	//cout << "Введите размер стека: ";
+	//int DQ = SafeInput(1);
+	//stack<int>str;
+	//stack<int>str2;
+	//for (int i = 0; i < DQ; i++)
+	//{
+	//	str.push(random(0, 100));
+	//}
+	//out(str);
+	//cout << "Введите ключ для удаления элемента: ";
+	//int key = SafeInput1(1);
+	//int t = 0, t1 = str.size();
+	//while (str.top() != key && t != t1)
+	//{
+	//	str2.push(str.top());
+	//	str.pop();
+	//	t++;
+	//	if (t == t1)
+	//	{
+	//		break;
+	//	}
+	//}
+	//if (t != t1)
+	//{
+	//	str.pop();
+	//	for (int i = 0; i < t; i++)
+	//	{
+	//		str.push(str2.top());
+	//		str2.pop();
+	//	}
+	//	out(str);
+	//}
+	//else
+	//{
+	//	cout << "Ошибка!\n";
+	//}
+	//cout << "\n============================================================\n";
+
+
 	return 0;
 }
 
